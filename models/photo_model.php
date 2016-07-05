@@ -4,6 +4,7 @@
 // *** Include the class
 // *** Create the FTP object
 
+
 class photo_model extends Model
 {
     public function __construct()

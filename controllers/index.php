@@ -21,9 +21,7 @@ class Index extends Controller
     public function index()
     {
         $this->view->title = 'login';
-        
-
-         $this->view->render('header');
+        $this->view->render('header');
         $this->view->render('index/index');
         
        
