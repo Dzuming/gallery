@@ -35,6 +35,7 @@ class insert_photo extends Controller
         $data['photo_name'] = basename($_FILES['photo_name']['name']);
         $data['id_category'] = $_POST['id_category'];
         $data['photo_description'] = $_POST['photo_description'];
+        $data['date'] = date('Y-m-d');
         $this->model->insert($data);
         $this->model->ftp_connect();
         header('location: '.URL.'insert_photo');

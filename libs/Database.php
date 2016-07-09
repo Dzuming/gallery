@@ -31,14 +31,18 @@ class Database extends PDO
 
         return $sth->fetchAll($fetchMode);
     }
-    public function insertPhoto($photo_name, $id_category, $photo_description)
+    public function insert($table, $data)
     {
-        $stmt = $this->db->prepare("INSERT INTO photo(photo_name, id_category, photo_description) 
-                      VALUES (:photo_name, :id_category, :photo_description)");
-                                              
-        $stmt->bindParam(':photo_name', $data['photo_name'], PDO::PARAM_STR);
-        $stmt->bindParam(':id_category', $data['id_category'], PDO::PARAM_STR);
-        $stmt->bindParam(':photo_description', $data['photo_description'], PDO::PARAM_STR);
-        $stmt->execute();
+        ksort($data);
+
+        $fieldNames = implode('`, `', array_keys($data));
+        $fieldValues = ':'.implode(', :', array_keys($data));
+        
+        $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+
+        foreach ($data as $key => $value) {
+            $sth->bindValue(":$key", $value);
+        }
+        $sth->execute();
     }
 }

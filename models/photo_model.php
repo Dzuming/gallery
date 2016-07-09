@@ -70,16 +70,5 @@ class photo_model extends Model
 
         return $result;
     }
-    public function insert($data)
-    {
-    
-        $stmt = $this->db->prepare("INSERT INTO photo(photo_name, id_category, photo_description) 
-                      VALUES (:photo_name, :id_category, :photo_description)");
-                                              
-        $stmt->bindParam(':photo_name', $data['photo_name'], PDO::PARAM_STR);
-        $stmt->bindParam(':id_category', $data['id_category'], PDO::PARAM_STR);
-        $stmt->bindParam(':photo_description', $data['photo_description'], PDO::PARAM_STR);
-        $stmt->execute();
-
-    }
 }
+

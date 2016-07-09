@@ -28,14 +28,4 @@ class photo extends Controller
         
        
     }
-    public function insert()
-    {
-        $data = array();
-        $data['photo_name'] = $_POST['photo_name'];
-        $data['id_category'] = $_POST['id_category'];
-        $data['photo_description'] = $_POST['photo_description'];
-        
-        $this->model->insert($data);
-        header('location: '.URL.'photo');
-    }
 }

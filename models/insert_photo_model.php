@@ -36,6 +36,15 @@ class insert_photo_model extends Model
     }
     public function insert($data)
     {
-        Database::insertPhoto($data['photo_name'], $data['id_category'], $data['photo_description']);
+        
+        $this->db->insert(
+            'photo',
+            [
+            'photo_name' => $data['photo_name'],
+            'id_category' => $data['id_category'],
+            'photo_description' => $data['photo_description'],
+            'created_at' => $data['date'],
+            'updated_at' => $data['date']
+            ]);
     }
 }
