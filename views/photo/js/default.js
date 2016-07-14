@@ -125,11 +125,6 @@
                 $('this').post_descriptionStart(descriptionStart);
                 var pathStart = $("img.photo").first().attr("src");
                 $('this').post_containerStart(pathStart);
-      // $( "li.navigation" ).click(function() {
-   //var lastClicks = $(this).prev().children().attr("src");
-   // console.error(lastClicks);
-      //return this;
-//});
                 $("img.photo").click(function () {
                     var path = $(this).attr("src");
                     $('this').post_container(path);
@@ -149,7 +144,7 @@
             dataType: "html",
             success: function (data) {
                 $('#header').html(data);
-                $(".navigation li:contains ('" + window.category + "')").css("opacity", "0.5");
+                $(".navigation li:contains('" + window.category + "')").css("opacity", "0.5");
                 $(".navigation li").click(function () {
                     window.category = $(this).text();
                     $(".navigation li").css("opacity", "1");
@@ -209,7 +204,7 @@
 //
 //
 //
-$(document).ready(function () {
+$(function () {
     "use strict";
     var token = 0;
     window.category = "Ślesin";
